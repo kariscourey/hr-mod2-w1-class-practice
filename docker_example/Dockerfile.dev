@@ -1,0 +1,44 @@
+FROM python:3
+ENV PYTHONUNBUFFERED 1
+WORKDIR /app
+COPY requirements.txt requirements.txt
+# any changes we make actively inside the system will be reflected inside
+# container and will actively be able to test it
+# COPY . .
+# have everything, not just requirements.txt
+RUN pip install -r requirements
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
+# docker build -f Dockerfile.dev . -t blog_service
+
+# docker run blog_service
+
+# docker run -v "$(pwd):/app" blog_service  # will run on port that we defined; if you try to go to local host, can't reach it
+
+# docker run -v "$(pwd):/app" -p "8000:8000" blog_service
+
+# docker build -f Dockerfile.dev -t blog_service
+
+# docker run -v "$(pwd):/app" -p "8000:8000" blog_service
+
+
+# image takes Dockerfile as a template but uses all other resources it needs to create a container
+# volumes connect on a container by container basis
+# can run three containers connected by a volume
+
+# the only thing you need to explicitly have on your machine is requirements.txt
+# everything else can be accessed through the volume
+# when using COPY . ., no connection to local
+# if you want to make changes to code, COPY requirements.txt requirements.txt
+
+# docker run -v "#(pwd):/app" -p "8000:8000" blog_service
+
+# COPY requirements.txt requirements.txt ONLY works if you
+# use -v for volume to connect to local host
+
+
+# container
+# a computer, we use build to build the individual computer
+# docker build -f Dockerfile.dev . -t bloddy-mcblogfase
+# CMD just runs whatever follows inside the container
