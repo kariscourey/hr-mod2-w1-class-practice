@@ -74,7 +74,7 @@ createClueHtml(data);
 // response = await fetch(url);
 data = await fetchAndParse('https://jservice.xyz/api/categories');
 // const categories = data.categories;
-// const {categories} = data;
+const {categories} = data;
 
 const selectTag = document.querySelector('#categoryId');
 
