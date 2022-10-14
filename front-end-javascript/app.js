@@ -85,6 +85,7 @@ for (const category of categories.slice(0,100)) {
     selectTag.appendChild(option);
 }
 
+
 const form = document.querySelector('form');
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); // stops browser from sending form
