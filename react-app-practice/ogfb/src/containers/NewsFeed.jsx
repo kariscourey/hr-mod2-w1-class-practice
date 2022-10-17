@@ -11,6 +11,7 @@ function NewsFeed() {
         ]
     };
 
+
     const data = jsonResponse['newsfeed'];
 
     return (
