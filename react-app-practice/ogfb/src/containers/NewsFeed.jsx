@@ -1,4 +1,5 @@
 import NewsItem from '../components/NewsItem';
+import Form from '../components/Form';
 
 function NewsFeed() {
 
@@ -16,6 +17,8 @@ function NewsFeed() {
 
     return (
         <div className='NewsFeed'>
+
+            <Form />
 
             {data.map(item => {
                 return(<NewsItem name={item.name} action={item.action}/>)
